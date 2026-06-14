@@ -47,6 +47,40 @@ Nosso desenvolvimento é descentralizado em frentes de especialização:
 
 ---
 
+## 🚀 Como Executar o Projeto
+
+Você pode executar o backend do DSE.LearnLab de duas formas: usando **Docker** (com PostgreSQL + pgvector) ou **diretamente na sua máquina** (com fallback automático para SQLite).
+
+### Opção 1: Via Docker (Recomendado para Produção e Testes Completos)
+Certifique-se de que o **Docker Desktop** está ativo em sua máquina e execute:
+```bash
+docker-compose up --build
+```
+*A API estará disponível em `http://localhost:8000` e o banco PostgreSQL ativo na porta 5432.*
+
+### Opção 2: Localmente via Python (Ambiente de Desenvolvimento Simplificado)
+Se preferir rodar de forma leve sem Docker, a aplicação utilizará automaticamente o **SQLite** como banco local caso não encontre o PostgreSQL configurado ou os drivers correspondentes.
+
+1. Crie o ambiente virtual:
+   ```bash
+   python -m venv venv
+   ```
+2. Ative o ambiente virtual:
+   *   **Windows (PowerShell)**: `.\venv\Scripts\Activate.ps1`
+   *   **Linux/MacOS**: `source venv/bin/activate`
+3. Instale as dependências:
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+4. Inicie o servidor FastAPI:
+   ```bash
+   cd backend
+   uvicorn app.main:app --reload
+   ```
+   *A API estará acessível em `http://localhost:8000`.*
+
+---
+
 ## 🤝 Junte-se a Nós!
 
 Procuramos colaboradores de diversos perfis:
